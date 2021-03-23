@@ -14,6 +14,7 @@ header="${header}# Log salvo em log.txt                #\n"
 header="${header}=======================================\n"
 
 echo -e $header
+echo " " > log.txt
 
 for host in {1..254};
 do
@@ -27,7 +28,6 @@ do
                 log="[+] Host Ativo ==> $resp"
         fi
 
-        echo > " " log.txt
         echo $log >> log.txt
 
         clear
