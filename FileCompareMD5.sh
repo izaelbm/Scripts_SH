@@ -22,17 +22,6 @@ echo -e $header
 
 echo -e $code
 
-#Verificando se os argumentos estao vazios
-#if [["$1" == ""] || ["$2" == ""] || ["$3" == ""]];
-#then
-#	clear
-#	echo " "
-#	echo "*** Ta Faltando alguns argumentos ai....***"
-#	echo " "
-#	echo -e $header
- #   exit 1
-#fi
-
 #cria um hash md5 do arquivo mestre
 FileMaster=$(md5sum $2 | cut -d " " -f1)
 
@@ -62,7 +51,8 @@ then
         else
 	        echo -e "${RED}[-] ${NC}$a $FileCompare"
         fi
-else
+elif [[ $1 == "/:dir" ]];
+then
 	#comparando com varios arquivos
 	clear
 
@@ -89,4 +79,11 @@ else
                 fi
 
 	done
+else
+	clear
+	echo " "
+	echo "*** Ta Faltando alguns argumentos ai....***"
+	echo " "
+	echo -e $header
+
 fi
