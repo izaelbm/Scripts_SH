@@ -12,7 +12,9 @@ do
 
 result=$(whois $i | grep "Organization:" | cut -d ":" -f 2 | sed 's/ //g')
 
-if [ -z = $result ]; then 
+count=${#result}
+
+if [ $count -le 0 ]; then 
         echo $i";Other"
 else
         echo $i";"$result
