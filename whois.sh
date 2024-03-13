@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 echo "" > whois_log.txt
 
@@ -10,7 +10,7 @@ lista=$1
 for i in $(cat $lista)
 do
 
-result=$(whois $i | grep "Organization:" | cut -d ":" -f 2 | sed 's/ //g')
+result=$(whois $i | grep "owner-c" | cut -d ":" -f 2 | sed 's/ //g')
 
 count=${#result}
 
